@@ -1,0 +1,75 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #f4f4f9; color: #333; }
+
+/* HEADER */
+.main-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.actions { display: flex; gap: 10px; }
+
+/* BOTONES */
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s;
+}
+.btn-primary { background-color: #27ae60; color: white; }
+.btn-info { background-color: #3498db; color: white; }
+.btn-warning { background-color: #f39c12; color: white; }
+.btn-secondary { background-color: #95a5a6; color: white; }
+.btn:hover { opacity: 0.9; }
+.full-width { width: 100%; margin-top: 10px; }
+
+/* TABLA */
+.container { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+h2 { margin-bottom: 1rem; color: #2c3e50; }
+table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
+th { background-color: #ecf0f1; color: #2c3e50; font-weight: 600; }
+tr:hover { background-color: #f8f9fa; }
+
+/* ETIQUETAS DE ESTADO */
+.badge { padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; }
+.badge.available { background-color: #e8f8f5; color: #27ae60; }
+.badge.borrowed { background-color: #fdedec; color: #c0392b; }
+
+/* MODALES */
+.modal {
+    display: none;
+    position: fixed; z-index: 1000; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: white; margin: 10% auto; padding: 20px;
+    border-radius: 8px; width: 50%; max-width: 500px;
+    position: relative; animation: slideDown 0.3s;
+}
+.modal-content.small { width: 30%; }
+.close { position: absolute; right: 15px; top: 10px; font-size: 24px; cursor: pointer; color: #aaa; }
+.close:hover { color: black; }
+
+/* FORMULARIOS */
+.form-group { margin-bottom: 15px; }
+label { display: block; margin-bottom: 5px; font-weight: 500; }
+input, select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+.row { display: flex; gap: 10px; }
+.col { flex: 1; }
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
