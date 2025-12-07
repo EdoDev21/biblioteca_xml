@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'BibliotecaXML';
+$db   = 'biblioteca';
 $user = 'root';
 $pass = 'root';
 $charset = 'utf8mb4';
