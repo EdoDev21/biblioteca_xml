@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $db   = 'biblioteca';
-$user = 'root';
+$user = '127.0.0.1';
 $pass = 'luna';
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
