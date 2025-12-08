@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../schemas/libros.xsl"?>
-<catalogo version="1.0" fecha_exportacion="2025-12-08T23:37:56" total_libros="4">
+<catalogo version="1.0" fecha_exportacion="2025-12-08T23:44:31" total_libros="4">
   <biblioteca>
     <nombre>Biblioteca Central Universitaria</nombre>
     <ubicacion>Campus Principal - Edificio A</ubicacion>
@@ -15,7 +15,7 @@
     <editorial>Sudamericana</editorial>
     <paginas>471</paginas>
     <precio>299.00</precio>
-    <fecha_ingreso>2025-12-07</fecha_ingreso>
+    <fecha_ingreso>2025-12-08</fecha_ingreso>
   </libro>
   <libro id="2" disponible="true">
     <isbn>978-84-376-0494-7</isbn>
@@ -26,7 +26,7 @@
     <editorial>Francisco de Robles</editorial>
     <paginas>863</paginas>
     <precio>450.00</precio>
-    <fecha_ingreso>2025-12-07</fecha_ingreso>
+    <fecha_ingreso>2025-12-08</fecha_ingreso>
   </libro>
   <libro id="3" disponible="true">
     <isbn>978-84-08-11123-5</isbn>
@@ -37,7 +37,7 @@
     <editorial>Reynal &amp; Hitchcock</editorial>
     <paginas>96</paginas>
     <precio>150.00</precio>
-    <fecha_ingreso>2025-12-07</fecha_ingreso>
+    <fecha_ingreso>2025-12-08</fecha_ingreso>
   </libro>
   <libro id="4" disponible="true">
     <isbn>978-84-204-8312-1</isbn>
@@ -48,6 +48,6 @@
     <editorial>Secker &amp; Warburg</editorial>
     <paginas>328</paginas>
     <precio>280.00</precio>
-    <fecha_ingreso>2025-12-07</fecha_ingreso>
+    <fecha_ingreso>2025-12-08</fecha_ingreso>
   </libro>
 </catalogo>

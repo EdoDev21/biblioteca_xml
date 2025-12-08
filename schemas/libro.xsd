@@ -38,9 +38,10 @@
 
     <xs:simpleType name="ISBNType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="\d{3}-\d{2}-\d{2}-\d{4}-\d"/>
+            <xs:pattern value="\d{3}-\d+-\d+-\d+-\d"/>
             <xs:pattern value="\d{13}"/>
             <xs:pattern value="\d{10}"/>
+            <xs:pattern value="\d+-\d+-\d+-\d"/>
         </xs:restriction>
     </xs:simpleType>
 
