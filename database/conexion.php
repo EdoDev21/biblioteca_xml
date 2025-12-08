@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'biblioteca';
 $user = 'root';
-$pass = 'root';
+$pass = 'luna';
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
