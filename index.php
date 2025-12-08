@@ -32,7 +32,7 @@ $libros = $stmt->fetchAll();
             </a>
 
             <button onclick="abrirModal('modalImportar')" class="btn btn-info">
-                <i class="fas fa-file-import"></i> Importar
+                <i class="fas fa-file-import"></i> Importar XML
             </button>
 
             <button onclick="abrirModal('modalNuevo')" class="btn btn-primary">
