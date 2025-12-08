@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../schemas/libros.xsl"?>
-
-<catalogo version="1.0" fecha_exportacion="2023-10-27T10:00:00" total_libros="2">
-    
-    <biblioteca>
-        <nombre>Biblioteca Central Universitaria</nombre>
-        <ubicacion>Edificio A, Campus Norte</ubicacion>
-        <telefono>555-0123</telefono>
-    </biblioteca>
-
-    <libro id="1" disponible="true">
-        <isbn>978-12-34-56789-0</isbn>
-        <titulo>Cien Años de Soledad</titulo>
-        <autor>Gabriel García Márquez</autor>
-        <genero>Realismo Mágico</genero>
-        <año_publicacion>1967</año_publicacion>
-        <editorial>Sudamericana</editorial>
-        <paginas>471</paginas>
-        <precio>19.99</precio>
-        <fecha_ingreso>2023-01-15</fecha_ingreso>
-    </libro>
-
-    <libro id="2" disponible="false">
-        <isbn>9780451524935</isbn>
-        <titulo>1984</titulo>
-        <autor>George Orwell</autor>
-        <genero>Ciencia Ficción</genero>
-        <año_publicacion>1949</año_publicacion>
-        <editorial>Secker &amp; Warburg</editorial>
-        <paginas>328</paginas>
-        <precio>14.50</precio>
-        <fecha_ingreso>2023-03-20</fecha_ingreso>
-    </libro>
-
+<catalogo version="1.0" fecha_exportacion="2025-12-08T23:37:56" total_libros="4">
+  <biblioteca>
+    <nombre>Biblioteca Central Universitaria</nombre>
+    <ubicacion>Campus Principal - Edificio A</ubicacion>
+    <telefono>555-0123-456</telefono>
+  </biblioteca>
+  <libro id="1" disponible="true">
+    <isbn>978-607-07-1234-5</isbn>
+    <titulo>Cien Años de Soledad</titulo>
+    <autor>Gabriel García Márquez</autor>
+    <genero>Realismo Mágico</genero>
+    <año_publicacion>1967</año_publicacion>
+    <editorial>Sudamericana</editorial>
+    <paginas>471</paginas>
+    <precio>299.00</precio>
+    <fecha_ingreso>2025-12-07</fecha_ingreso>
+  </libro>
+  <libro id="2" disponible="true">
+    <isbn>978-84-376-0494-7</isbn>
+    <titulo>Don Quijote de la Mancha</titulo>
+    <autor>Miguel de Cervantes</autor>
+    <genero>Novela</genero>
+    <año_publicacion>1605</año_publicacion>
+    <editorial>Francisco de Robles</editorial>
+    <paginas>863</paginas>
+    <precio>450.00</precio>
+    <fecha_ingreso>2025-12-07</fecha_ingreso>
+  </libro>
+  <libro id="3" disponible="true">
+    <isbn>978-84-08-11123-5</isbn>
+    <titulo>El Principito</titulo>
+    <autor>Antoine de Saint-Exupéry</autor>
+    <genero>Fábula</genero>
+    <año_publicacion>1943</año_publicacion>
+    <editorial>Reynal &amp; Hitchcock</editorial>
+    <paginas>96</paginas>
+    <precio>150.00</precio>
+    <fecha_ingreso>2025-12-07</fecha_ingreso>
+  </libro>
+  <libro id="4" disponible="true">
+    <isbn>978-84-204-8312-1</isbn>
+    <titulo>1984</titulo>
+    <autor>George Orwell</autor>
+    <genero>Ciencia Ficción</genero>
+    <año_publicacion>1949</año_publicacion>
+    <editorial>Secker &amp; Warburg</editorial>
+    <paginas>328</paginas>
+    <precio>280.00</precio>
+    <fecha_ingreso>2025-12-07</fecha_ingreso>
+  </libro>
 </catalogo>
