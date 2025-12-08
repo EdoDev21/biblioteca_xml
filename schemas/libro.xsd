@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="catalogo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="biblioteca" type="BibliotecaType"/>
+                <xs:element name="libro" type="LibroType" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:decimal" use="required"/>
+            <xs:attribute name="fecha_exportacion" type="xs:dateTime" use="required"/>
+            <xs:attribute name="total_libros" type="xs:integer" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="BibliotecaType">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="ubicacion" type="xs:string"/>
+            <xs:element name="telefono" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LibroType">
+        <xs:sequence>
+            <xs:element name="isbn" type="ISBNType"/>
+            <xs:element name="titulo" type="xs:string"/>
+            <xs:element name="autor" type="xs:string"/>
+            <xs:element name="genero" type="GeneroType"/>
+            <xs:element name="año_publicacion" type="xs:gYear"/>
+            <xs:element name="editorial" type="xs:string" minOccurs="0"/>
+            <xs:element name="paginas" type="xs:positiveInteger" minOccurs="0"/>
+            <xs:element name="precio" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="fecha_ingreso" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:integer" use="required"/>
+        <xs:attribute name="disponible" type="xs:boolean" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="ISBNType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{3}-\d{2}-\d{2}-\d{4}-\d"/>
+            <xs:pattern value="\d{13}"/>
+            <xs:pattern value="\d{10}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="GeneroType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Novela"/>
+            <xs:enumeration value="Ciencia Ficción"/>
+            <xs:enumeration value="Fantasía"/>
+            <xs:enumeration value="Realismo Mágico"/>
+            <xs:enumeration value="Fábula"/>
+            <xs:enumeration value="Poesía"/>
+            <xs:enumeration value="Teatro"/>
+            <xs:enumeration value="Ensayo"/>
+            <xs:enumeration value="Biografía"/>
+            <xs:enumeration value="Historia"/>
+            <xs:enumeration value="Otro"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
