@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../schemas/libros.xsl"?>
+
+<catalogo version="1.0" fecha_exportacion="2023-10-27T10:00:00" total_libros="2">
+    
+    <biblioteca>
+        <nombre>Biblioteca Central Universitaria</nombre>
+        <ubicacion>Edificio A, Campus Norte</ubicacion>
+        <telefono>555-0123</telefono>
+    </biblioteca>
+
+    <libro id="1" disponible="true">
+        <isbn>978-12-34-56789-0</isbn>
+        <titulo>Cien Años de Soledad</titulo>
+        <autor>Gabriel García Márquez</autor>
+        <genero>Realismo Mágico</genero>
+        <año_publicacion>1967</año_publicacion>
+        <editorial>Sudamericana</editorial>
+        <paginas>471</paginas>
+        <precio>19.99</precio>
+        <fecha_ingreso>2023-01-15</fecha_ingreso>
+    </libro>
+
+    <libro id="2" disponible="false">
+        <isbn>9780451524935</isbn>
+        <titulo>1984</titulo>
+        <autor>George Orwell</autor>
+        <genero>Ciencia Ficción</genero>
+        <año_publicacion>1949</año_publicacion>
+        <editorial>Secker &amp; Warburg</editorial>
+        <paginas>328</paginas>
+        <precio>14.50</precio>
+        <fecha_ingreso>2023-03-20</fecha_ingreso>
+    </libro>
+
+</catalogo>
