@@ -1,14 +1,10 @@
 <?php
-// actions/guardar.php
-
 require_once '../database/conexion.php';
 
-// 1. IMPORTANTE: Indicamos que la respuesta será JSON, no HTML
 header('Content-Type: application/json');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Recolección y limpieza de datos (Igual que tenías antes)
     $isbn = isset($_POST['isbn']) ? htmlspecialchars(trim($_POST['isbn'])) : null;
     $titulo = isset($_POST['titulo']) ? htmlspecialchars(trim($_POST['titulo'])) : null;
     $autor = isset($_POST['autor']) ? htmlspecialchars(trim($_POST['autor'])) : null;
@@ -18,9 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $paginas = isset($_POST['paginas']) ? (int)$_POST['paginas'] : null; 
     $precio = isset($_POST['precio']) ? (float)$_POST['precio'] : null; 
 
-    // Validación básica
     if (empty($isbn) || empty($titulo) || empty($autor) || is_null($precio)) {
-        // CAMBIO: En vez de redirigir, devolvemos JSON con error
         echo json_encode(['success' => false, 'error' => 'Campos obligatorios incompletos']);
         exit;
     }
@@ -41,14 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':editorial', $editorial);
         $stmt->bindParam(':paginas', $paginas, PDO::PARAM_INT);
         $stmt->bindParam(':precio', $precio);
-
         $stmt->execute();
 
-        // 2. CAMBIO: Recuperamos el ID recién creado
         $nuevo_id = $pdo->lastInsertId();
 
-        // 3. CAMBIO: Preparamos el array con TODOS los datos del libro
-        // Esto es necesario para que Javascript pueda dibujar la fila sin recargar
         $libro_creado = [
             'id' => $nuevo_id,
             'isbn' => $isbn,
@@ -59,10 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'editorial' => $editorial,
             'paginas' => $paginas,
             'precio' => $precio,
-            'disponible' => 1 // Valor por defecto en tu DB
+            'disponible' => 1
         ];
 
-        // 4. CAMBIO: Devolvemos éxito y los datos en JSON
         echo json_encode([
             'success' => true,
             'libro' => $libro_creado
@@ -71,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } catch (PDOException $e) {
         
-        // Manejo de errores en JSON
         $mensaje_error = $e->getMessage();
         
         if ($e->getCode() == 23000) { 
@@ -86,7 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 } else {
-    // Si entran por GET, devolvemos error JSON
     echo json_encode(['success' => false, 'error' => 'Método no permitido']);
     exit;
 }
