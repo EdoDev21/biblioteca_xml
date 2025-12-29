@@ -13,7 +13,7 @@ $libros = $stmt->fetchAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca XML</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -57,7 +57,7 @@ $libros = $stmt->fetchAll();
                         <th>Páginas</th>
                         <th>Precio</th>
                         <th>Estado</th>
-                    </tr>
+                        <th>Acciones</th> </tr>
                 </thead>
                 <tbody>
                     <?php if(count($libros) > 0): ?>
@@ -72,15 +72,24 @@ $libros = $stmt->fetchAll();
                                 <td><?php echo htmlspecialchars($libro['paginas']); ?></td>
                                 <td>$<?php echo number_format($libro['precio'], 2); ?></td>
                                 <td>
-                                    <span class="badge <?php echo $libro['disponible'] ? 'available' : 'borrowed'; ?>">
+                                    <span id="badge-<?php echo $libro['id']; ?>" class="badge <?php echo $libro['disponible'] ? 'available' : 'borrowed'; ?>">
                                         <?php echo $libro['disponible'] ? 'Disponible' : 'Prestado'; ?>
                                     </span>
+                                </td>
+                                <td>
+                                    <button 
+                                        id="btn-<?php echo $libro['id']; ?>"
+                                        class="btn btn-secondary" 
+                                        style="font-size: 0.8rem; padding: 2px 8px;"
+                                        onclick="cambiarEstadoLibro(<?php echo $libro['id']; ?>, <?php echo $libro['disponible']; ?>)">
+                                        <?php echo $libro['disponible'] ? 'Prestar' : 'Devolver'; ?>
+                                    </button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" style="text-align:center;">No hay libros registrados aún.</td>
+                            <td colspan="10" style="text-align:center;">No hay libros registrados aún.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
@@ -92,7 +101,8 @@ $libros = $stmt->fetchAll();
         <div class="modal-content">
             <span class="close" onclick="cerrarModal('modalNuevo')">&times;</span>
             <h2>Registrar Nuevo Libro</h2>
-            <form action="actions/guardar.php" method="POST">
+            
+            <form id="formNuevoLibro" onsubmit="crearLibroAJAX(event)">
                 <div class="form-group">
                     <label>ISBN:</label>
                     <input type="text" name="isbn" required placeholder="Ej: 978-3-16-148410-0">
@@ -152,7 +162,7 @@ $libros = $stmt->fetchAll();
             <h2>Importar Catálogo XML</h2>
             <p>Selecciona un archivo XML válido para cargar a la base de datos.</p>
             
-            <form action="xml/importar.php" method="POST" enctype="multipart/form-data">
+            <form id="formImportarXML" onsubmit="importarXmlAJAX(event)" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="file" name="archivo_xml" accept=".xml" required>
                 </div>
@@ -176,5 +186,7 @@ $libros = $stmt->fetchAll();
             }
         }
     </script>
+    
+    <script src="assets/realtime.js"></script>
 </body>
 </html>
