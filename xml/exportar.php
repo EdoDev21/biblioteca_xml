@@ -28,7 +28,7 @@ try {
         $libroNode->appendChild($dom->createElement('titulo', htmlspecialchars($libroDB['titulo'])));
         $libroNode->appendChild($dom->createElement('autor', htmlspecialchars($libroDB['autor'])));
         $libroNode->appendChild($dom->createElement('genero', $libroDB['genero']));
-        $libroNode->appendChild($dom->createElement('ano_publicacion', $libroDB['ano_publicacion']));
+        $libroNode->appendChild($dom->createElement('año_publicacion', $libroDB['año_publicacion']));
         
         if (!empty($libroDB['editorial'])) {
             $libroNode->appendChild($dom->createElement('editorial', htmlspecialchars($libroDB['editorial'])));

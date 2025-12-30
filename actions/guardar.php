@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "INSERT INTO libros 
-            (isbn, titulo, autor, genero, ano_publicacion, editorial, paginas, precio) 
+            (isbn, titulo, autor, genero, año_publicacion, editorial, paginas, precio) 
             VALUES 
             (:isbn, :titulo, :autor, :genero, :anio, :editorial, :paginas, :precio)";
 
