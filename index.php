@@ -67,7 +67,7 @@ $libros = $stmt->fetchAll();
                                 <td><?php echo htmlspecialchars($libro['titulo']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['autor']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['genero']); ?></td>
-                                <td><?php echo htmlspecialchars($libro['año_publicacion']); ?></td>
+                                <td><?php echo htmlspecialchars($libro['ano_publicacion']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['editorial']); ?></td>
                                 <td><?php echo htmlspecialchars($libro['paginas']); ?></td>
                                 <td>$<?php echo number_format($libro['precio'], 2); ?></td>

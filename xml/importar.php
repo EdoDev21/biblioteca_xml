@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_xml'])) {
             } else {
                 $librosXML = $dom->getElementsByTagName('libro');
                 
-                $sql = "INSERT IGNORE INTO libros (isbn, titulo, autor, genero, año_publicacion, editorial, paginas, precio, disponible, fecha_ingreso) 
+                $sql = "INSERT IGNORE INTO libros (isbn, titulo, autor, genero, ano_publicacion, editorial, paginas, precio, disponible, fecha_ingreso) 
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sql);
 
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_xml'])) {
                     $titulo    = $libro->getElementsByTagName('titulo')->item(0)->nodeValue;
                     $autor     = $libro->getElementsByTagName('autor')->item(0)->nodeValue;
                     $genero    = $libro->getElementsByTagName('genero')->item(0)->nodeValue;
-                    $anio      = $libro->getElementsByTagName('año_publicacion')->item(0)->nodeValue;
+                    $anio      = $libro->getElementsByTagName('ano_publicacion')->item(0)->nodeValue;
                     
                     $editorialNode = $libro->getElementsByTagName('editorial')->item(0);
                     $editorial = $editorialNode ? $editorialNode->nodeValue : null;
