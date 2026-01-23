@@ -1,8 +1,19 @@
 <?php
+require_once '../session_check.php';
 
 require_once '../database/conexion.php';
 
 header('Content-Type: application/json');
+
+if (defined('MODO_LECTURA') && MODO_LECTURA === true) {
+    echo json_encode([
+        'success' => false,
+        'mensajes' => '',
+        'errores' => ['⛔ ERROR CRÍTICO: El sistema está operando en Modo de Respaldo. No se permiten importaciones masivas hasta restablecer el servidor principal.'],
+        'cantidad' => 0
+    ]);
+    exit;
+}
 
 $mensajes = "";
 $errores = [];
@@ -25,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_xml'])) {
             if (!$dom->schemaValidate($rutaXSD)) {
                 $errors = libxml_get_errors();
                 foreach ($errors as $error) {
-                    $errores[] = "Error de validación (Línea {$error->line}): {$error->message}";
+                    $errores[] = "Error de validación XML (Línea {$error->line}): {$error->message}";
                 }
                 libxml_clear_errors();
             } else {
@@ -33,6 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_xml'])) {
                 
                 $sql = "INSERT IGNORE INTO libros (isbn, titulo, autor, genero, año_publicacion, editorial, paginas, precio, disponible, fecha_ingreso) 
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                
                 $stmt = $pdo->prepare($sql);
 
                 foreach ($librosXML as $libro) {
@@ -68,7 +80,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_xml'])) {
                     }
                 }
                 
-                $mensajes = "Importación exitosa. Se agregaron $contadorInsertados libros nuevos.";
+                if ($contadorInsertados > 0) {
+                    $mensajes = "Importación exitosa. Se agregaron $contadorInsertados libros nuevos.";
+                } else {
+                    $mensajes = "El proceso terminó, pero no se insertaron libros nuevos (posibles duplicados).";
+                }
             }
 
         } else {
@@ -76,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_xml'])) {
         }
 
     } else {
-        $errores[] = "Error al subir el archivo (Código: {$archivo['error']})";
+        $errores[] = "Error al subir el archivo (Código PHP: {$archivo['error']})";
     }
 }
 

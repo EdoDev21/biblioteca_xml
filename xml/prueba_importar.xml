@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalogo 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="../schemas/libro.xsd"
+    version="1.0" 
+    fecha_exportacion="2026-01-21T12:00:00" 
+    total_libros="2">
+
+    <biblioteca>
+        <nombre>Biblioteca UFM 360</nombre>
+        <ubicacion>Campus Central</ubicacion>
+        <telefono>2338-7700</telefono>
+    </biblioteca>
+
+    <libro id="101" disponible="true">
+        <isbn>978-3-16-148410-0</isbn> 
+        <titulo>Introducción a la Programación</titulo>
+        <autor>Alan Turing</autor>
+        <genero>Ensayo</genero> <año_publicacion>2023</año_publicacion>
+        <editorial>UFM Press</editorial>
+        <paginas>350</paginas>
+        <precio>45.50</precio>
+        <fecha_ingreso>2025-10-01</fecha_ingreso>
+    </libro>
+
+    <libro id="102" disponible="false">
+        <isbn>0-7475-3269-9</isbn>
+        <titulo>Harry Potter y la Piedra Filosofal</titulo>
+        <autor>J.K. Rowling</autor>
+        <genero>Fantasía</genero>
+        <año_publicacion>1997</año_publicacion>
+        <editorial>Salamandra</editorial>
+        <paginas>256</paginas>
+        <precio>20.00</precio>
+        <fecha_ingreso>2025-11-15</fecha_ingreso>
+    </libro>
+
+</catalogo>

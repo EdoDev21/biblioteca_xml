@@ -1,7 +1,21 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once '../session_check.php';
+
 require_once '../database/conexion.php';
 
 header('Content-Type: application/json');
+
+if (defined('MODO_LECTURA') && MODO_LECTURA === true) {
+    echo json_encode([
+        'success' => false, 
+        'error' => '⛔ ERROR CRÍTICO: El sistema está operando en el Servidor de Respaldo. No se permiten cambios hasta que se restablezca el Servidor Principal.'
+    ]);
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
